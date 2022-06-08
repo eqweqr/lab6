@@ -19,7 +19,7 @@ jobs:
       # Build your program with the given configuration
       run: |
         touch time.txt
-        usr/bin/time -o time.txt make -H. -B_build -DCPACK_GENERATOR="TGZ"; 
+        \time -o time.out.text make -H. -B_build -DCPACK_GENERATOR="TGZ"; 
         cmake --build _build --target package 
         cd _build
         cpack -G "DEB"
