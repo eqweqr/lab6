@@ -24,7 +24,7 @@ jobs:
 
     - name: Time
       # Build your program with the given configuration
-      run: cp time.txt ../artifacts/
+      run: cp ./time.txt ../artifacts/
            
     - name: Publish
       uses: actions/upload-artifact@v2
