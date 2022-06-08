@@ -18,15 +18,14 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-           cd _build && cpack -G "DEB"
-           ) > time.txt &&
+           cd _build && cpack -G "DEB") > time.txt &&
            cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
            cd _build && cpack -G "DEB"
            
 
     - name: Time
       # Build your program with the given configuration
-      run: cp time.txt *.deb &&
+      run: 
            mkdir ../artifacts/ &&
            mv *.deb ../artifacts/
            
