@@ -19,7 +19,8 @@ jobs:
       # Build your program with the given configuration
       run: |
         touch time.txt
-        /bin/time -po time.txt (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package) 
+        /bin/time -po time.txt cmake -H. -B_build -DCPACK_GENERATOR="TGZ" 
+        cmake --build _build --target package 
         cd _build
         cpack -G "DEB"
       
