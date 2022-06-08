@@ -19,7 +19,6 @@ jobs:
       # Build your program with the given configuration
       run: |
         touch time.txt
-        'hello'>>time.txt
         cmake -H. -B_build -DCPACK_GENERATOR="TGZ" 
         cmake --build _build --target package 
         echo dasdassad>time.txt
