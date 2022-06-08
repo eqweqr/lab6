@@ -20,7 +20,11 @@ jobs:
       run: time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
            cd _build && cpack -G "DEB" &&
            mkdir ../artifacts &&
-           mv *.deb ../artifacts/) > ../time.txt
+           mv *.deb ../artifacts/)
+
+    - name: Build
+      # Build your program with the given configuration
+      run: mv time.txt ../artifacts/
            
     - name: Publish
       uses: actions/upload-artifact@v2
