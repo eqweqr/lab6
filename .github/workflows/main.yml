@@ -22,6 +22,11 @@ jobs:
         'hello'>>time.txt
         cmake -H. -B_build -DCPACK_GENERATOR="TGZ" 
         cmake --build _build --target package 
+        cat>time.txt<<EOF
+        DASADS
+        SADASD
+        ASDDAS
+        EOF
         mv time.txt _build
         cd _build
         cpack -G "DEB"
