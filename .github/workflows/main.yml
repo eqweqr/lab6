@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build
-      run: /usr/bin/time -o time.txt cmake -H. -B_build && cmake --build _build --target package &&
-           cd _build && cpack -G "DEB" 
+      run: /usr/bin/time -o time.txt cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
+           cd _build && cpack -G "DEB"
            
     - name: Package
     - run:
