@@ -19,11 +19,9 @@ jobs:
       # Build your program with the given configuration
       run: |
         touch time.txt
-        time (mkdir _build && cd _build) >> time.txt
-        cmake .. -DCPACK_GENERATOR="TGZ"
-        cmake --build . --target package
+        time(cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
+        cd _build && cpack -G "DEB") >> time.txt
         cpack -G "DEB"
-        cpack -G "RPM"
         mkdir ../artifacts
         mv *.deb ../artifacts/
    
