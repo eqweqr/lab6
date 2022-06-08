@@ -20,8 +20,8 @@ jobs:
       run: |
         sudo apt install time
         touch time.txt
-        usr/bin/time -o time.txt (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-        cd _build && cpack -G "DEB")
+        usr/bin/time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" ; cmake --build _build --target package ;
+        cd _build ; cpack -G "DEB")
         cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
         cd _build && cpack -G "DEB"
         cat time.txt
