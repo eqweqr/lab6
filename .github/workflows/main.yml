@@ -18,7 +18,6 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: |
-        cd lab6
         touch time.txt
         time (mkdir _build && cd _build) >> time.txt
         cmake .. -DCPACK_GENERATOR="TGZ"
@@ -33,4 +32,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: artifacts
-        path: lab6/artifacts/
+        path: artifacts/
