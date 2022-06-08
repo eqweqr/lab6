@@ -17,16 +17,20 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-           cd _build && cpack -G "DEB") > time.txt &&
-           cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-           cd _build && cpack -G "DEB" &&
-           find time.txt
-
-           
-           
+      run: |
+        cd lab6
+        touch time.txt
+        time (mkdir _build && cd _build) >> time.txt
+        cmake .. -DCPACK_GENERATOR="TGZ"
+        cmake --build . --target package
+        cpack -G "DEB"
+        cpack -G "RPM"
+        mkdir ../artifacts
+        mv *.deb ../artifacts/
+   
+   
     - name: Publish
       uses: actions/upload-artifact@v2
       with:
-        name: artifact
-        path: artifacts/
+        name: artifacts
+        path: lab6/artifacts/
