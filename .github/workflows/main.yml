@@ -21,7 +21,7 @@ jobs:
         touch time.txt
         cmake -H. -B_build -DCPACK_GENERATOR="TGZ"  
         cmake --build _build --target package 
-        type -a time > time.txt
+        /bin/time -o time.txt ls
         cd _build
         cpack -G "DEB"
       
