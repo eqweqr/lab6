@@ -19,10 +19,13 @@ jobs:
       # Build your program with the given configuration
       run: |
         touch time.txt
-        usr/bin/time -o time.txt {cmake -H. -B_build -DCPACK_GENERATOR="TGZ" ; cmake --build _build --target package ;
-        cd _build; }
-        cat time.txt
+        cmake -H. -B_build -DCPACK_GENERATOR="TGZ" 
+        cmake --build _build --target package 
+        cd _build
         cpack -G "DEB"
+        cd ..
+        mv time.txt /home/runner/work/lab6/lab6/_build/lab06-0.1.1-Linux.deb 
+        cd _build
       
         mkdir ../artifacts
         mv *.deb ../artifacts/
