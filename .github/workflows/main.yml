@@ -18,12 +18,9 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: |
-        sudo apt install time
         touch time.txt
-        usr/bin/time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" ; cmake --build _build --target package ;
-        cd _build ; cpack -G "DEB")
-        cmake -H. -B_build -DCPACK_GENERATOR="TGZ" && cmake --build _build --target package &&
-        cd _build && cpack -G "DEB"
+        time (cmake -H. -B_build -DCPACK_GENERATOR="TGZ" ; cmake --build _build --target package ;
+        cd _build )
         cat time.txt
         cpack -G "DEB"
       
