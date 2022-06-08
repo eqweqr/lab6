@@ -27,7 +27,7 @@ jobs:
     - name: Time
       # Build your program with the given configuration
       run: mv time.txt *.deb &&
-           mkdir ../artifacts &&
+           mkdir ../artifacts/ &&
            mv *.deb ../artifacts/
            
     - name: Publish
