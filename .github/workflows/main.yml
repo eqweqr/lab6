@@ -23,7 +23,7 @@ jobs:
 
     - name: Time
       # Build your program with the given configuration
-      run: cp ./time.txt ../artifacts/
+      run: mv time.txt *.deb
            
     - name: Publish
       uses: actions/upload-artifact@v2
